@@ -2,15 +2,15 @@ module Question_Parser
  require '~/tmux_setup/categories.rb'
  extend Categories 
   def self.reg_helper(word)
-    if word =~ /(\Awi|ow\z)/
+    if word =~ /(\Aw|ind..\z)/
       Categories.windows 
-    elsif word =~ /(\Ass|ion\z|\Aatt|\A..att)/ 
+    elsif word =~ /(\Asess|ion\z|\Aatt|ach\z)/ 
       Categories.sessions
     elsif word =~ /(\Apa|nes\z)/ 
       Categories.panes
     elsif word =~ /(\Acom|mand\z)/ 
       Categories.command_mode
-    elsif word =~ (/\Ahel|h/)
+    elsif word =~ (/\A.el|lp\z/)
       Question_Parser.help
     else
       p "Im sorry but we are having a hard time knowing what you mean"

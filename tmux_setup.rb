@@ -8,7 +8,9 @@ class TmuxSetup
     puts "=-=-=-=-=-=-=-=-=-=-=-=-==-"
     question = gets.chomp 
     puts "=-=-=-=-=-=-=-=-=-=-=-=-=-="
-    type_of_query(question)
+    unless question =~ /(exit|quit)/
+      type_of_query(question)
+    end
   end
   
   def type_of_query(question)
@@ -26,8 +28,8 @@ class TmuxSetup
       puts "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"
       puts "is there any thing else i can help you with?" 
       answer = gets.chomp
-      puts "=-=-=-=-=-=-=-"
-      if answer =~ (/\An|quit|exit/)
+      if answer =~ (/\An|\Aquit|\Aexit/)
+        puts "=-=-=-=-=-=-=-=-=-"
         puts "thanks come again"
       else
         query
