@@ -1,4 +1,6 @@
 module Categories 
+  require'~/tmux_setup/setup.rb'
+  extend Setup
   def self.windows
     puts 'while attached to a tmux session:
          =-=-=-=-
@@ -91,9 +93,9 @@ module Categories
           new-session -n "name of session"
           new-window ""
           resize-pane -(U|R|L|D) (1-100) 
-          
-          
-          *note that the when quiting the bash command the window will also close'  
-          
+          *note that the when quiting the bash command the window will also close'
+  end
+  def self.setup
+    Setup.initial_setup 
   end
 end

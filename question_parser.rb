@@ -10,8 +10,11 @@ module Question_Parser
       Categories.panes
     elsif word =~ /(\Acom|mand\z)/ 
       Categories.command_mode
+    elsif word =~ (/\Aset|up\z/)
+      Categories.setup
     elsif word =~ (/\A.el|lp\z/)
       Question_Parser.help
+      
     else
       p "Im sorry but we are having a hard time knowing what you mean"
       p "try 'help' for a list of command libraries"
@@ -21,7 +24,6 @@ module Question_Parser
   def self.help
     p "Forgot Tmux Commands:"
     p "=-=-=-=-=-=-=-=-=-=-=-="
-    help_library =  %w[windows panes sessions command_mode]
-    help_library.each {|h| p h}
+    Categories.singleton_methods.each {|h| p h}
   end
 end

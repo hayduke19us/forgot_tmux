@@ -28,8 +28,8 @@ class TmuxSetup
       puts "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"
       puts "is there any thing else i can help you with?" 
       answer = gets.chomp
+      puts "=-=-=-=-=-=-=-"
       if answer =~ (/\An|\Aquit|\Aexit/)
-        puts "=-=-=-=-=-=-=-=-=-"
         puts "thanks come again"
       else
         query
