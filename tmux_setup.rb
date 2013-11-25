@@ -1,5 +1,8 @@
 class TmuxSetup
-  require "~/tmux_setup/question_parser.rb"
+  require "~/tmux_setup/routes.rb"
+  include Routes
+ 
+  require QUESTION_PARSER 
   extend Question_Parser 
   
   def query

@@ -1,6 +1,10 @@
 module Categories 
-  require'~/tmux_setup/setup.rb'
+  require "~/tmux_setup/routes.rb" 
+  extend Routes
+
+  require Routes::SETUP
   extend Setup
+  
   def self.windows
     puts 'while attached to a tmux session:
          =-=-=-=-

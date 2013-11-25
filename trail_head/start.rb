@@ -1,8 +1,10 @@
 module Start
-  require 'rubygems'
-  require 'bundler/setup'
-  require '~/tmux_setup/utilities.rb'
+  require "~/tmux_setup/routes.rb"
+  extend Routes
   
+  require Routes::UTILITIES
+  extend Utilities
+
   class BuildAlias
     include Term::ANSIColor
     include Utilities
@@ -60,5 +62,3 @@ module Start
   end
 end
 
-builder = Start::BuildAlias.new
-builder.find_bash

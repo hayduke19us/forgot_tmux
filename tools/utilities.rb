@@ -1,8 +1,10 @@
 module Utilities
-  require 'rubygems'
-  require 'bundler/setup'
+  require "~/tmux_setup/routes.rb"
+  extend Routes 
+ 
   require 'term/ansicolor'
   extend Term::ANSIColor
+  
   def self.anti_replication(file, no_replicate, reg)
     array = IO.readlines(file)
       array.each do |line|
@@ -36,6 +38,13 @@ module Utilities
       log = File.new("#{@home}/tmux_setup/log.txt", 'a')
       log.puts action
       log.puts file
+    end
+
+    def self.bind_command(command)
+      Dir.chdir()
+      tmux_conf = File.open("tmux_tester.conf", "a")
+      command.each {|line| tmux_conf.puts "#{line}\n"}
     end 
-  end
+    
+end
 

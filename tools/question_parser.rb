@@ -1,7 +1,14 @@
 module Question_Parser
- require '~/tmux_setup/categories.rb'
- extend Categories 
-  def self.reg_helper(word)
+  require "~/tmux_setup/routes.rb"
+  extend Routes
+
+  require Routes::SETUP
+  require Routes::BINDINGS
+  require Routes::CATEGORIES
+
+  extend Categories 
+  extend Bindings 
+ def self.reg_helper(word)
     if word =~ /(\Aw|ind..\z)/
       Categories.windows 
     elsif word =~ /(\Asess|ion\z|\Aatt|ach\z)/ 
@@ -25,5 +32,8 @@ module Question_Parser
     p "Forgot Tmux Commands:"
     p "=-=-=-=-=-=-=-=-=-=-=-="
     Categories.singleton_methods.each {|h| p h}
+    p "=-=-=-=-=-=-=-=-=-=-=-="
+    p "Bindings under 'setup':"
+    Bindings::Keys.singleton_methods.each {|h| p h }
   end
 end

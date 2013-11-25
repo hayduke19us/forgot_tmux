@@ -1,14 +1,19 @@
 module Setup
-   PATH = "~/tmux_setup/"
-   require PATH + "simple.rb"
-   require PATH + "auto_simple.rb"
-   require PATH + "complex_walk.rb"
-   require PATH + "auto_complex.rb"
+   require "~/tmux_setup/routes.rb"
+   extend Routes
+   
+   require Routes::SIMPLE
+   require Routes::AUTO_SIMPLE
+   require Routes::COMPLEX
+   require Routes::AUTO_COMPLEX
+   require Routes::START
+ 
    extend Simple
    extend AutoSimple
    extend Complex_Walk
    extend AutoComplex
-      
+   extend Start    
+   
    def self.initial_setup
      puts %{We reccomend you remap your CAPS LOCK key to CTRL. In OS X this 
      option is within your System Preferences/Keyboard options.
@@ -26,6 +31,8 @@ module Setup
      Choose a setup. (1|2|3|4)}
      setup_choice = gets.chomp.to_i
      unless setup_choice =~ (/\Aex|it\z/)
+       start = Start::BuildAlias.new
+       start.find_bash 
        setup_choice = setup_choice.to_i  
        if setup_choice == 1
          Simple.start
