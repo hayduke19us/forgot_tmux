@@ -64,7 +64,7 @@ module Utilities
       t = Time.now
       Dir.chdir()
       @home = Dir.pwd
-      log = File.open("#{@home}/tmux_setup/log.txt", "a")
+      log = File.open("#{@home}/forgot_tmux/log.txt", "a")
       log.puts "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"
       log.puts t.strftime("Printed on %m/%d/%y") + t.strftime("at %I:%M%p")
       log.puts green, action, clear

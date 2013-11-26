@@ -26,7 +26,7 @@ module Start
     end
     
     def self.add_alias
-      forgot_tmux_alias = "alias forgot_tmux='ruby ~/tmux_setup/lib/tmux_setup.rb'"
+      forgot_tmux_alias = "alias forgot_tmux='ruby ~/forgot_tmux/lib/tmux_setup.rb'"
       Utilities.progress_bar      
       Utilities.anti_replication(".bashrc", forgot_tmux_alias, /forgot_tmux/) 
       puts %{=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-}
@@ -37,7 +37,7 @@ module Start
       puts green, "Creating ~/.bashrc", clear  
         bash_file = File.open(".bashrc", "a")
         bash_file.puts "#alias forgot_tmux..use at command line"
-        bash_file.puts "alias forgot_tmux='ruby ~/tmux_setup/tmux_setup.rb'"
+        bash_file.puts "alias forgot_tmux='ruby ~/forgot_tmux/tmux_setup.rb'"
         Utilities.log_write("#created ~/.bashrc file", "~/.bashrc")
         Utilities.log_write("#added forgot_tmux alias", "~/.bashrc")
     end

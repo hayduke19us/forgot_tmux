@@ -16,7 +16,7 @@ populates the file with most necessary key bindings.
 
 2. In the command line:
 
-`ruby ~/tmux_setup/trail_head/setup.rb`
+`ruby ~/forgot_tmux/lib/setup.rb`
 
 3. Finished!
 
