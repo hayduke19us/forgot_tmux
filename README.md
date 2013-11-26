@@ -16,7 +16,7 @@ populates the file with most necessary key bindings.
 
 2. In the command line:
 
-`ruby ~/forgot_tmux/lib/setup.rb`
+`ruby ~/forgot_tmux/lib/tmux_setup.rb`
 
 3. Finished!
 
