@@ -24,10 +24,10 @@ populates the file with most necessary key bindings.
 
 Type `forgot_tmux` in the command line to access the script. The input takes various arguments. 
 
-**'setup'** : Will give you four setup options from simple to         
+`setup` : Will give you four setup options from simple to         
 complex. From a step by step key binding to a quick automated setup for the busy developer.
   
-**'help'**  : Will list all applicable query inputs.
+`setup`  : Will list all applicable query inputs.
 
 #### Coming Soon:
 
