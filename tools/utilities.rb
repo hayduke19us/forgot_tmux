@@ -27,15 +27,24 @@ module Utilities
     def self.progress_bar
       12.times do
         print magenta, ".", clear
-        sleep 0.1
+        sleep 0.06
       end
     end
+
+    def self.fast_progress_bar
+      12.times do
+        print magenta, ".", clear
+        sleep 0.05
+      end
+    end
+
+
 
     def self.log_write(action, file)
       t = Time.now
       Dir.chdir()
       @home = Dir.pwd
-      log = File.new("#{@home}/tmux_setup/log.txt", 'a')
+      log = File.open("#{@home}/tmux_setup/log.txt", "a")
       log.puts "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"
       log.puts t.strftime("Printed on %m/%d/%y") + t.strftime("at %I:%M%p")
       log.puts green, action, clear
@@ -54,4 +63,3 @@ module Utilities
    puts "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"
    end 
 end
-
