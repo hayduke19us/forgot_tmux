@@ -12,7 +12,7 @@ populates the file with most necessary key bindings.
 
 1. Clone the repository into your $HOME dir:
 
-`git clone https://github.com/hayduke19us/tmux_setup.git`
+`https://github.com/hayduke19us/forgot_tmux.git`
 
 2. In the command line:
 
