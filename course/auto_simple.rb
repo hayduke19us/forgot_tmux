@@ -1,16 +1,7 @@
-module AutoSimple
-  require "~/tmux_setup/routes.rb"
-  include Routes
- 
-  require Routes::SETUP
-  require Routes::BINDINGS 
-  require Routes::UTILITIES 
-   
+require "~/tmux_setup/library/bindings"
+require "~/tmux_setup/tools/utilities"
 
-  extend Setup
-  extend Bindings
-  extend Utilities
-  
+module AutoSimple
   
   def self.start
     Bindings.conf_file

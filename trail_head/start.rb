@@ -1,13 +1,8 @@
-module Start
-  require "~/tmux_setup/routes.rb"
-  extend Routes
-  
-  require Routes::UTILITIES
-  extend Utilities
+require "~/tmux_setup/tools/utilities.rb"
 
+module Start
   class BuildAlias
     include Term::ANSIColor
-    include Utilities
     # Makes an alias to the command "forgot_tmux" in your 
     # ~/.bash_rc file.
     # Then you can type "frogot_tmux in your terminal to start the script"

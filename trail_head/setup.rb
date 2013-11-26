@@ -1,21 +1,16 @@
-module Setup
-   require "~/tmux_setup/routes.rb"
-   extend Routes
-   extend Utilities  
-    
-   require Routes::SIMPLE_WALK
-   require Routes::AUTO_SIMPLE
-   require Routes::COMPLEX_WALK
-   require Routes::AUTO_COMPLEX
-   require Routes::START
+require "~/tmux_setup/routes.rb"
+require "~/tmux_setup/course/simple_walk"
+require "~/tmux_setup/course/auto_simple"
+require "~/tmux_setup/course/complex_walk"
+require "~/tmux_setup/course/auto_complex"
+require "~/tmux_setup/trail_head/start"
 
-   extend SimpleWalk
-   extend AutoSimple
-   extend ComplexWalk
-   extend AutoComplex
-   extend Start    
-   
+
+module Setup
    def self.initial_setup
+     start = Start::BuildAlias.new
+     start.find_bash 
+     
      puts %{We reccomend you remap your CAPS LOCK key to CTRL. In OS X this 
      option is within your System Preferences/Keyboard options.
      =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -32,8 +27,6 @@ module Setup
      Choose a setup. (1|2|3|4)}
      setup_choice = gets.chomp.to_i
      unless setup_choice =~ (/\Aex|it\z/)
-       start = Start::BuildAlias.new
-       start.find_bash 
        setup_choice = setup_choice.to_i  
        if setup_choice == 1
          SimpleWalk.start
@@ -46,6 +39,8 @@ module Setup
        else
          puts "please make a selection of 1-4 or type 'exit' to quit."    
        end
+     else
+     TmuxSetup.query
      end
    end
 end

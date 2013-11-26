@@ -1,12 +1,8 @@
+require '~/tmux_setup/library/bindings'
+require '~/tmux_setup/trail_head/setup'
+require '~/tmux_setup/tools/utilities'
 module Categories 
-  require "~/tmux_setup/routes.rb" 
-  extend Routes
   
-  require Routes::BINDINGS
-  require Routes::SETUP
-  extend Bindings
-  extend Setup
-  extend Utilities
   class Color
     extend Term::ANSIColor
   end

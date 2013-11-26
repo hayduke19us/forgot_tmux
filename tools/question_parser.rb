@@ -1,14 +1,8 @@
+require "~/tmux_setup/library/categories"
 module Question_Parser
-  require "~/tmux_setup/routes.rb"
-  extend Routes
-
-  require Routes::SETUP
-  require Routes::BINDINGS
-  require Routes::CATEGORIES
-
   extend Categories 
-  extend Bindings 
- def self.reg_helper(word)
+  
+  def self.reg_helper(word)
     if word =~ /(\Aw|ind..\z)/
       Categories.windows 
     elsif word =~ /(\Asess|ion\z|\Aatt|ach\z)/ 

@@ -1,9 +1,7 @@
+require "~/tmux_setup/tools/utilities"
+
 module Bindings
-  require "~/tmux_setup/routes.rb"
-  extend Routes
   
-  require Routes::UTILITIES
-  include Utilities
   extend Term::ANSIColor    
   
     @file = "~/tmux_tester.conf"

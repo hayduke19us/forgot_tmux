@@ -1,10 +1,31 @@
+require 'term/ansicolor'
+require '~/tmux_setup/tools/question_parser.rb'
+
 module Utilities
-  require "~/tmux_setup/routes.rb"
-  extend Routes 
- 
-  require 'term/ansicolor'
   extend Term::ANSIColor
   
+  def self.query
+    puts "=-=-=-=-=-=-=-=-=-=-=-=-=-="
+    puts "What do you need help with?"
+    puts "=-=-=-=-=-=-=-=-=-=-=-=-==-"
+    question = gets.chomp 
+    puts "=-=-=-=-=-=-=-=-=-=-=-=-=-="
+    unless question =~ /(exit|quit|nothing)/
+      self.type_of_query(question)
+    else 
+      puts "thanks"
+    end
+  end
+  
+  def self.type_of_query(phrase)
+    phrase_array = phrase.split
+    phrase_array.each do |word|
+      Question_Parser.reg_helper(word)    
+    end
+    self.query
+  end
+
+
   def self.anti_replication(file, no_replicate, reg)
     found_line = false
     array = IO.readlines(file)

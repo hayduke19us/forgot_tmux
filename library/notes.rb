@@ -1,7 +1,6 @@
+require "~/tmux_setup/tools/utilities"
+
 module Notes
-  require '~/tmux_setup/routes.rb'
-  extend Routes
-  extend Utilities  
   
   def self.vertical_pane_note
     Utilities.divider
@@ -17,8 +16,9 @@ module Notes
                                   | | |
                                   | | |  
            }
-  end  
   Utilities.divider
+  end  
+  
   def self.resize_panes_note
     Utilities.divider
     puts %{* Note we are using upper case letters in the config file. Tmux
@@ -26,8 +26,8 @@ module Notes
              and for this binding we are using the -r arg. That tells
              tmux to repeat the command, so we don't have to type
              the PREFIX once per pane adjustment.} 
-  end
     Utilities.divider
+  end
   def self.mouse_mode_note
     Utilities.divider
     puts %{* Note we just used "setw" and "-g". Those stand for set-window and

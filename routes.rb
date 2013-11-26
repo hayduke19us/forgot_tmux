@@ -1,9 +1,11 @@
+require 'rubygems'
+require 'bundler/setup'
+require '~/tmux_setup/tools/utilities'
 module Routes
-  require 'rubygems'
-  require 'bundler/setup'
 
   PATH = "~/tmux_setup/"
   
+  TMUX_SETUP = PATH + "tmux_setup.rb"
   SIMPLE_WALK = PATH + "course/simple_walk.rb"
   AUTO_SIMPLE = PATH + "course/auto_simple.rb"
   COMPLEX_WALK = PATH + "course/complex_walk.rb"
