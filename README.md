@@ -16,3 +16,13 @@ ruby ~/tmux_setup/trail_head/setup.rb
 
 3.Finished!
 
+Commands:
+  Type "forgot_tmux" to access the script. The input takes 
+various arguments. 
+
+'setup' : Will give you four setup options from simple to         
+          complex. From a walk thru key binding to automated.
+
+'help'  : Will list all applicable query inputs.
+
+
