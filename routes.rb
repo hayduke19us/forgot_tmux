@@ -4,9 +4,9 @@ module Routes
 
   PATH = "~/tmux_setup/"
   
-  SIMPLE = PATH + "course/simple.rb"
+  SIMPLE_WALK = PATH + "course/simple_walk.rb"
   AUTO_SIMPLE = PATH + "course/auto_simple.rb"
-  COMPLEX = PATH + "course/complex.rb"
+  COMPLEX_WALK = PATH + "course/complex_walk.rb"
   AUTO_COMPLEX = PATH + "course/auto_complex.rb"
   
   QUESTION_PARSER = PATH + "tools/question_parser.rb"
@@ -19,4 +19,5 @@ module Routes
   SETUP = PATH + "trail_head/setup.rb"
   START = PATH + "trail_head/start.rb"
 
+  require Routes::UTILITIES
 end

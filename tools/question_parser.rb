@@ -20,20 +20,8 @@ module Question_Parser
     elsif word =~ (/\Aset|up\z/)
       Categories.setup
     elsif word =~ (/\A.el|lp\z/)
-      Question_Parser.help
-      
-    else
-      p "Im sorry but we are having a hard time knowing what you mean"
-      p "try 'help' for a list of command libraries"
+      Categories.help
     end
   end
   
-  def self.help
-    p "Forgot Tmux Commands:"
-    p "=-=-=-=-=-=-=-=-=-=-=-="
-    Categories.singleton_methods.each {|h| p h}
-    p "=-=-=-=-=-=-=-=-=-=-=-="
-    p "Bindings under 'setup':"
-    Bindings::Keys.singleton_methods.each {|h| p h }
-  end
 end

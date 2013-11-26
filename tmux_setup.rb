@@ -1,44 +1,32 @@
-class TmuxSetup
+module TmuxSetup
+  #all routes are in constants in routes.rb
   require "~/tmux_setup/routes.rb"
   include Routes
  
-  require QUESTION_PARSER 
+  require Routes::QUESTION_PARSER 
   extend Question_Parser 
-  
-  def query
+ 
+  #first we get the user input 
+  def self.query
     puts "=-=-=-=-=-=-=-=-=-=-=-=-=-="
     puts "What do you need help with?"
     puts "=-=-=-=-=-=-=-=-=-=-=-=-==-"
     question = gets.chomp 
     puts "=-=-=-=-=-=-=-=-=-=-=-=-=-="
-    unless question =~ /(exit|quit)/
-      type_of_query(question)
+    unless question =~ /(exit|quit|nothing)/
+      self.type_of_query(question)
     end
   end
   
-  def type_of_query(question)
-    question = question.split
-    question.each do |word|
+  #then we put user input into an array and compare input to reg exp with
+  #reg_helper method. 
+  def self.type_of_query(phrase)
+    phrase_array = phrase.split
+    phrase_array.each do |word|
       Question_Parser.reg_helper(word)    
-      more_help? 
     end
+    self.query
   end
-  
-  
-    private
-    
-    def more_help?
-      puts "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"
-      puts "is there any thing else i can help you with?" 
-      answer = gets.chomp
-      puts "=-=-=-=-=-=-=-"
-      if answer =~ (/\An|\Aquit|\Aexit/)
-        puts "thanks come again"
-      else
-        query
-      end
-    end 
 end
 
-mux = TmuxSetup.new
-mux.query
+TmuxSetup.query

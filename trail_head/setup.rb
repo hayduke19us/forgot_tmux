@@ -1,16 +1,17 @@
 module Setup
    require "~/tmux_setup/routes.rb"
    extend Routes
-   
-   require Routes::SIMPLE
+   extend Utilities  
+    
+   require Routes::SIMPLE_WALK
    require Routes::AUTO_SIMPLE
-   require Routes::COMPLEX
+   require Routes::COMPLEX_WALK
    require Routes::AUTO_COMPLEX
    require Routes::START
- 
-   extend Simple
+
+   extend SimpleWalk
    extend AutoSimple
-   extend Complex_Walk
+   extend ComplexWalk
    extend AutoComplex
    extend Start    
    
@@ -35,7 +36,7 @@ module Setup
        start.find_bash 
        setup_choice = setup_choice.to_i  
        if setup_choice == 1
-         Simple.start
+         SimpleWalk.start
        elsif setup_choice == 2
          AutoSimple.start
        elsif setup_choice == 3
@@ -47,9 +48,4 @@ module Setup
        end
      end
    end
-   
-    
-    def self.divider
-      puts '=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-==-=-=-='
-    end
 end

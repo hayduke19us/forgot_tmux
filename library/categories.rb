@@ -1,10 +1,27 @@
 module Categories 
   require "~/tmux_setup/routes.rb" 
   extend Routes
-
-  require Routes::SETUP
-  extend Setup
   
+  require Routes::BINDINGS
+  require Routes::SETUP
+  extend Bindings
+  extend Setup
+  extend Utilities
+  class Color
+    extend Term::ANSIColor
+  end
+  def self.help
+    puts ""
+    puts "Forgot Tmux commands:"
+    puts ""
+    puts "=-=-=-=-=-=-=-=-=-=-=-="
+    Categories.singleton_methods.each {|h| p h}
+    puts "=-=-=-=-=-=-=-=-=-=-=-="
+    puts Color.magenta, "Bindings under 'setup':", Color.clear
+    puts "=-=-=-=-=-=-=-=-=-=-=-="
+    Bindings::Keys.singleton_methods.each {|h| p h }
+  end
+
   def self.windows
     puts 'while attached to a tmux session:
          =-=-=-=-
