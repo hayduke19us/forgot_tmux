@@ -1,4 +1,3 @@
-require "~/tmux_setup/routes.rb"
 require "~/tmux_setup/course/simple_walk"
 require "~/tmux_setup/course/auto_simple"
 require "~/tmux_setup/course/complex_walk"
@@ -8,8 +7,7 @@ require "~/tmux_setup/trail_head/start"
 
 module Setup
    def self.initial_setup
-     start = Start::BuildAlias.new
-     start.find_bash 
+     Start.find_bash 
      
      puts %{We reccomend you remap your CAPS LOCK key to CTRL. In OS X this 
      option is within your System Preferences/Keyboard options.
@@ -33,7 +31,7 @@ module Setup
        elsif setup_choice == 2
          AutoSimple.start
        elsif setup_choice == 3
-         Complex_Walk.start
+         ComplexWalk.start
        elsif setup_choice == 4
          AutoComplex.start
        else

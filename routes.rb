@@ -21,5 +21,4 @@ module Routes
   SETUP = PATH + "trail_head/setup.rb"
   START = PATH + "trail_head/start.rb"
 
-  require Routes::UTILITIES
 end

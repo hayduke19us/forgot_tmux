@@ -1,6 +1,6 @@
 require 'term/ansicolor'
-require '~/tmux_setup/tools/question_parser.rb'
-
+require '~/tmux_setup/library/categories'
+require '~/tmux_setup/trail_head/setup'
 module Utilities
   extend Term::ANSIColor
   
@@ -20,7 +20,7 @@ module Utilities
   def self.type_of_query(phrase)
     phrase_array = phrase.split
     phrase_array.each do |word|
-      Question_Parser.reg_helper(word)    
+      Utilities.reg_helper(word)    
     end
     self.query
   end
@@ -59,9 +59,7 @@ module Utilities
       end
     end
 
-
-
-    def self.log_write(action, file)
+   def self.log_write(action, file)
       t = Time.now
       Dir.chdir()
       @home = Dir.pwd
@@ -81,6 +79,22 @@ module Utilities
     end 
    
    def self.divider
-   puts "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"
+     puts "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"
    end 
+   
+   def self.reg_helper(word)
+    if word =~ /(\Aw|ind..\z)/
+      Categories.windows 
+    elsif word =~ /(\Asess|ion\z|\Aatt|ach\z)/ 
+      Categories.sessions
+    elsif word =~ /(\Apa|nes\z)/ 
+      Categories.panes
+    elsif word =~ /(\Acom|mand\z)/ 
+      Categories.command_mode
+    elsif word =~ (/\Aset|up\z/)
+      Setup.initial_setup
+    elsif word =~ (/\A.el|lp\z/)
+      Categories.help
+    end
+  end
 end

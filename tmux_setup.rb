@@ -1,8 +1,3 @@
-#all routes are in constants in routes.rb
-require "~/tmux_setup/routes.rb"
+require '~/tmux_setup/tools/utilities'
 
-extend Utilities 
- 
 Utilities.query
-  
-

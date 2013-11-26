@@ -1,6 +1,5 @@
-require "~/tmux_setup/library/categories"
 module Question_Parser
-  extend Categories 
+  extend Categories
   
   def self.reg_helper(word)
     if word =~ /(\Aw|ind..\z)/
@@ -12,7 +11,7 @@ module Question_Parser
     elsif word =~ /(\Acom|mand\z)/ 
       Categories.command_mode
     elsif word =~ (/\Aset|up\z/)
-      Categories.setup
+      Setup.initialize_setup
     elsif word =~ (/\A.el|lp\z/)
       Categories.help
     end

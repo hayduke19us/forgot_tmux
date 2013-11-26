@@ -1,8 +1,5 @@
 require '~/tmux_setup/library/bindings'
-require '~/tmux_setup/trail_head/setup'
-require '~/tmux_setup/tools/utilities'
 module Categories 
-  
   class Color
     extend Term::ANSIColor
   end
