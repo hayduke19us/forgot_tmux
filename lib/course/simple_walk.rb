@@ -1,4 +1,4 @@
-require "~/tmux_setup/library/notes"
+require "bookshelf/notes"
 
 module SimpleWalk
   

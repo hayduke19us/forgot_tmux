@@ -1,5 +1,5 @@
-require "~/tmux_setup/library/bindings"
-require "~/tmux_setup/tools/utilities"
+require "bookshelf/bindings"
+require "utilities"
 
 module AutoSimple
   

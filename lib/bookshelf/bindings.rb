@@ -1,4 +1,4 @@
-require "~/tmux_setup/tools/utilities"
+require "utilities"
 
 module Bindings
   

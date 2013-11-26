@@ -1,6 +1,6 @@
 require 'term/ansicolor'
-require '~/tmux_setup/library/categories'
-require '~/tmux_setup/trail_head/setup'
+require 'bookshelf/categories'
+require 'trail_head/setup'
 module Utilities
   extend Term::ANSIColor
   
@@ -40,6 +40,7 @@ module Utilities
         bash_file.puts no_replicate
         puts green, "#{no_replicate} added to #{file}", clear
         log_write("##{no_replicate}", "#{file}")
+        %x{echo source ~/.bashrc}
       else
         puts red, "Found #{no_replicate} in #{file}", clear
       end

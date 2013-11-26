@@ -1,4 +1,5 @@
-require '~/tmux_setup/library/bindings'
+require 'bookshelf/bindings'
+
 module Categories 
   class Color
     extend Term::ANSIColor

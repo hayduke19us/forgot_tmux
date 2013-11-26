@@ -1,8 +1,8 @@
-require "~/tmux_setup/course/simple_walk"
-require "~/tmux_setup/course/auto_simple"
-require "~/tmux_setup/course/complex_walk"
-require "~/tmux_setup/course/auto_complex"
-require "~/tmux_setup/trail_head/start"
+require "course/simple_walk"
+require "course/auto_simple"
+require "course/complex_walk"
+require "course/auto_complex"
+require "trail_head/start"
 
 
 module Setup
