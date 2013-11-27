@@ -3,30 +3,31 @@ require 'bookshelf/categories'
 require 'trail_head/setup'
 module Utilities
   extend Term::ANSIColor
-  
+
   def self.query
     puts "=-=-=-=-=-=-=-=-=-=-=-=-=-="
     puts "What do you need help with?"
     puts "=-=-=-=-=-=-=-=-=-=-=-=-==-"
-    question = gets.chomp 
+    question = gets.chomp
     puts "=-=-=-=-=-=-=-=-=-=-=-=-=-="
     unless question =~ /(exit|quit|nothing)/
       self.type_of_query(question)
-    else 
+    else
       puts "thanks"
     end
   end
-  
+
   def self.type_of_query(phrase)
     phrase_array = phrase.split
     phrase_array.each do |word|
-      Utilities.reg_helper(word)    
+      Utilities.reg_helper(word)
     end
     self.query
   end
 
 
   def self.anti_replication(file, no_replicate, reg)
+    Dir.chdir()
     found_line = false
     array = IO.readlines(file)
       array.each do |line|
@@ -45,7 +46,7 @@ module Utilities
         puts red, "Found #{no_replicate} in #{file}", clear
       end
   end
-    
+
     def self.progress_bar
       12.times do
         print magenta, ".", clear
@@ -77,20 +78,20 @@ module Utilities
       tmux_conf = File.open("tmux_tester.conf", "a")
       command.each {|line| tmux_conf.puts "#{line}\n"}
       log_write(command, "~/.tmux.conf")
-    end 
-   
+    end
+
    def self.divider
      puts "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-"
-   end 
-   
+   end
+
    def self.reg_helper(word)
     if word =~ /(\Aw|ind..\z)/
-      Categories.windows 
-    elsif word =~ /(\Asess|ion\z|\Aatt|ach\z)/ 
+      Categories.windows
+    elsif word =~ /(\Asess|ion\z|\Aatt|ach\z)/
       Categories.sessions
-    elsif word =~ /(\Apa|nes\z)/ 
+    elsif word =~ /(\Apa|nes\z)/
       Categories.panes
-    elsif word =~ /(\Acom|mand\z)/ 
+    elsif word =~ /(\Acom|mand\z)/
       Categories.command_mode
     elsif word =~ (/\Aset|up\z/)
       Setup.initial_setup
