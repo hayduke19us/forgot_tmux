@@ -28,7 +28,7 @@ module Start
     def self.add_alias
       forgot_tmux_alias = "alias forgot_tmux='ruby ~/forgot_tmux/lib/tmux_setup.rb'"
       Utilities.progress_bar      
-      Utilities.anti_replication(".bashrc", forgot_tmux_alias, /forgot_tmux/) 
+      Utilities.anti_replication(".bashrc", forgot_tmux_alias, forgot_tmux_alias) 
       puts %{=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-}
     end
     

@@ -31,17 +31,19 @@ module Utilities
     found_line = false
     array = IO.readlines(file)
       array.each do |line|
-        if line =~ reg
+        if line =~ Regexp.new(reg)
           found_line = true
         end
       end
       if found_line == false
+        puts red, "no forgot_tmux alias found", clear
         bash_file = File.open(file, "a")
         bash_file.puts "# #{no_replicate}"
         bash_file.puts no_replicate
         puts green, "#{no_replicate} added to #{file}", clear
+        bash_file.close
         log_write("##{no_replicate}", "#{file}")
-        %x{echo source ~/.bashrc}
+        %x{echo 'source ~/.bashrc'}
       else
         puts red, "Found #{no_replicate} in #{file}", clear
       end

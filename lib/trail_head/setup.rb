@@ -38,7 +38,7 @@ module Setup
          puts "please make a selection of 1-4 or type 'exit' to quit."    
        end
      else
-     TmuxSetup.query
+     return
      end
    end
 end
